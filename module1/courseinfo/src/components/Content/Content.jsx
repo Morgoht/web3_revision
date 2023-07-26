@@ -1,7 +1,6 @@
 import Part from 'components/Part/Part'
 
 const Content = (props) => {
-  console.log(props)
     return (
       <>
         <Part part = {props.part[0].name} exercises = {props.part[0].exercises} />
