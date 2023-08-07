@@ -1,7 +1,16 @@
 
-const Button = ({text, handleClick}) => {
+const Button = ({text, changeCount, delta}) => {
+
+    const handleClick = (e) => {
+        console.log("event clicked ! on ", e);
+        const deltaValue = e.target.dataset.delta
+        const delta = parseInt(deltaValue)
+        changeCount(delta)
+    }
+    
+    
     return (
-        <button onClick={handleClick}> {text}</button>
+        <button data-delta ={delta} onClick={handleClick}> {text}</button>
     )
 }
 
