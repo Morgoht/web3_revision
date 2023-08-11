@@ -26,14 +26,9 @@
       "id": 5
     },
     {
-      "content": " A new note ...",
-      "important": true,
-      "id": 6
-    },
-    {
-      "content": "test",
+      "content": "ok",
       "important": false,
-      "id": 7
+      "id": 6
     }
   ]
 }
