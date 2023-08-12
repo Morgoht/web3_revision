@@ -1,6 +1,8 @@
 import axios from 'axios';
 import Person from './components/person/Person';
 import {useState, useEffect} from 'react'
+import FilterPerson from 'components/filter/FilterPerson';
+import AddPerson from 'components/addPerson/AddPerson';
 
 
 function App() {
@@ -9,6 +11,7 @@ function App() {
   // creeons un variable d'etat qui contrôle l'element d'entrée du form
   const [newPerson, setNewPerson] = useState('')
   const [newNumber, setNewNumber] = useState('')
+  const [filterPerson, setFilterPerson] = useState('')
 
   useEffect(() => {
     axios.get('http://localhost:3001/persons')
@@ -46,22 +49,15 @@ function App() {
       setPersons(persons.concat(newObject))
     }
   }
-  const handleFilter = (e) => {
-    console.log('filter activated')
-
-  }
+ 
 
 
   return (
     <div>
       <h2>PhoneBook </h2>
-      <form onSubmit={handleFilter}>
-        filter : <input/>
-        <div>
-        <button type='submit'> let's filter</button>
-        </div>
-      </form>
+      <FilterPerson valueFilter={filterPerson} changeFilter={setFilterPerson}/>
       <h2>Add a new person</h2>
+      <AddPerson/>
       <form onSubmit={handleAddPerson}>
         <div>
           name : <input onChange={handleChangeName}/>
